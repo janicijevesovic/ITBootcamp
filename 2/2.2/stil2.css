@@ -1,0 +1,30 @@
+h2 {
+    text-align: center;
+    color: darkred;
+}
+
+body {
+    background-color: #E6BF83;
+}
+
+img {
+    border: 3px double blue;
+}
+
+.klasa {
+    color: blue;
+    font-size: 20px;
+    font-family: Verdana,sans-serif;
+}
+
+#p2 {
+    color: purple;
+}
+
+a {
+    color: red;
+}
+
+a:hover {
+    color: green;
+}
