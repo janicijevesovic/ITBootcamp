@@ -1,0 +1,28 @@
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+}
+
+th, td {
+    padding: 5px;
+}
+
+.zuti {
+    background-color: yellow;
+}
+
+.tabela1 td, .tabela1 th {
+    border: 1px solid silver;
+}
+
+.tabela2 td, .tabela2 th {
+    border: 1px solid black;
+}
+
+.tabela2 tr td:nth-child(3), .tabela2 tr th:nth-child(3) {
+    background-color: yellow;
+}
