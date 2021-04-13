@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#prvi, #drugi {
+    border: 2px solid black;
+    margin: 20px;
+    padding: 15px;
+    display: inline-block; 
+    /*Sa ovim mozemo da primenimo width i heigth*/
+    width: 50%;
+    height: 30px;
+}
+
+
+p {
+    border: 2px solid green;
+    margin: 10px;
+    padding: 10px;
+    background-color: coral;
+    width: 350px;
+    height: 50px;
+}
+
+/*
+    display svojstvo 
+
+    Block (moze se promeniti width i height,
+    redjaju se jedan ispod drugog)
+        p, div, h1, h2..., h6, table, 
+
+    Inline (redjaju jedan za drugim,
+    ne moze da se promeni width i height)
+        a, span, td
+
+    Inline-Block (to je inline kome moze da se podesi
+    width i height)
+*/
+
+/*
+        Ukupan prostor = width/height + padding + border + margin
+*/
