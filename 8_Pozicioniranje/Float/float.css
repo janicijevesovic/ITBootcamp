@@ -1,0 +1,39 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+#glavni div {
+    float: left;
+    height: 250px;
+    width: 30%;
+    background-color: yellow;
+    margin: 10px;
+    border: 5px solid black;
+    position: relative;
+    left: 5px;
+    top: 10px;
+}
+
+#glavni {
+    overflow: hidden;
+    background-color: green;
+    height: 300px;
+}
+
+#glavni div img {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 25%;
+    top: 10px;
+}
+
+#glavni div p {
+    color: teal;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
