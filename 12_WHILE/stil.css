@@ -1,14 +1,11 @@
-p:nth-child(3n+1) {
-    color: red;
-} 
-
-p:nth-child(3n+2) {
-    color: green;
+img {
+    width: 64px;
 }
 
-p:nth-child(3n+3) {
-    color: yellow;
+.okvir1 {
+    border: dotted 2px red;
 }
 
-
-
+.okvir2 {
+    border: double 5px orange;
+}
