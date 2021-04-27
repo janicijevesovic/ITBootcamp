@@ -1,0 +1,14 @@
+p:nth-child(3n+1) {
+    color: red;
+} 
+
+p:nth-child(3n+2) {
+    color: green;
+}
+
+p:nth-child(3n+3) {
+    color: yellow;
+}
+
+
+
