@@ -75,16 +75,48 @@ console.log(`Broj delilaca broja ${k} je ${brojDelilaca}.`);
 
 // Zadatak 12. Odrediti da li je dati prirodan broj n prost. Broj je prost ako je deljiv samo sa jedan i sa samim sobom.
 
-n = 21;
-i = 2;
+n = 34; // Broj cija parnost se ispituje
+i = 2; // Brojac koji ide po potencijalnim deliocima broja n
 
+// Prvi nacin
 while (i < n) {
     if (n % i == 0) {
         console.log(`Broj ${n} nije prost.`);
         break;
     }
-    else {
-        console.log(`Broj ${n} je prost.`);
+    i++;
+}
+if (i == n) {
+    console.log(`Broj ${n} je prost.`);
+}
+
+// Drugi nacin
+n = 20; 
+while (i <= n / 2 ) {
+    if (n % i == 0) {
+        console.log(`Broj ${n} nije prost.`);
+        break; // Prekida izvrsenje petlje u kojoj se nasao
     }
     i++;
+}
+if (i > n / 2) {
+    console.log(`Broj ${n} je prost.`);
+}
+
+
+// Treci nacin
+n = 4; // Broj cija se parnost ispituje
+i = 2; // Brojac po potencijalnim deliocima broja n
+let prime = true; // Indikator (flag) da li je broj n prost
+while (prime && (i <= n / 2)) {
+    if (n % i == 0) {
+        prime = false;
+    }
+    i++;
+}
+if (prime) {
+    console.log(`Broj ${n} je prost.`);
+}
+else {
+    console.log(`Broj ${n} nije prost.`);
 }
