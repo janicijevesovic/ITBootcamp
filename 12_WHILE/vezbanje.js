@@ -75,7 +75,7 @@ console.log(`Broj delilaca broja ${k} je ${brojDelilaca}.`);
 
 // Zadatak 12. Odrediti da li je dati prirodan broj n prost. Broj je prost ako je deljiv samo sa jedan i sa samim sobom.
 
-n = 34; // Broj cija parnost se ispituje
+n = 37; // Broj cija parnost se ispituje
 i = 2; // Brojac koji ide po potencijalnim deliocima broja n
 
 // Prvi nacin

@@ -140,15 +140,196 @@ for (i = n; i <= m; i++) {
 let aritmetickaSredina = suma / (m - n + 1);
 console.log(`Aritmeticka sredina brojeva od ${n} do ${m} je ${aritmetickaSredina} .`);
 
+
+// Zadatak 15 Prebrojati i izračunati sumu brojeva od n do m kojima je poslednja cifra 4 i parni su.
+
+n = -10;
+m = 24;
+suma = 0;
+let brojSaPoslednjomCifrom4 = 0;
+
+for (i = n; i <= m; i++) {
+    if (i % 10 == 4 || i % 10 == -4) {
+        suma += i;
+        brojSaPoslednjomCifrom4 += 1;
+    }
+}
+console.log(`Suma brojeva od ${n} do ${m} kojima je poslednja cifra 4 je ${suma}.`);
+console.log(`Broj brojeva od ${n} do ${m} kojima je poslednja cifra 4 je ${brojSaPoslednjomCifrom4}.`);
+
+// Zadatak 16 Odrediti sumu brojeva od n do m koji nisu deljivi brojem a
+
+n = 6;
+m = 12;
+suma = 0;
+let a = 2;
+
+for (i = n; i <= m; i++) {
+    if (i % a != 0) {
+        suma += i;
+    }
+}
+console.log(`Suma brojeva od ${n} do ${m} koji nisu deljivi brojem ${a} je ${suma}.`);
+
 // Zadatak 13 Prebrojati koliko brojeva od n do m je pozitivno, a koliko njih je negativno.
 
-// n = -3;
-// m = 5;
-// let brojNegativnih = 0;
-// let brojPozitivnih = 0;
+n = -5;
+m = 3;
+let brojNegativnih = 0;
+let brojPozitivnih = 0;
 
-// for (i = n; i <= m; i++) {
-//     if (i < 0) {
+for (i = n; i <= m; i++) {
+    if (i < 0) {
+        brojNegativnih += 1;
+    }
+    else if (i > 0) {
+        brojPozitivnih += 1;
+    }
+}
+console.log(`Broj negativnih brojeva izmedju ${n} i ${m} je ${brojNegativnih}, a pozitivnih ${brojPozitivnih}.`);
 
-//     }
-// }
+// Zadatak 14 Prebrojati koliko je brojeva od 5 do 50 koji su deljivi sa 3 ili sa 5.
+
+let brojDeljivihSa3Ili5 = 0;
+
+for (i = 5; i <= 50; i++) {
+    if (i % 3 == 0 || i % 5 == 0) {
+        brojDeljivihSa3Ili5 += 1;
+    }
+}
+console.log(`Broj brojeva izmedju 5 i 50 koji su deljivi sa 3 ili sa 5 je ${brojDeljivihSa3Ili5}`);
+
+// Zadatak 17 Odrediti proizvod brojeva od n do m koji su deljivi brojem a
+
+let proizvodDeljivihSaA = 1;
+n = 10;
+m = 21;
+a = 5;
+
+for (i = n; i <= m; i++) {
+    if (i % a == 0) {
+        proizvodDeljivihSaA *= i;
+    }
+}
+console.log(`Proizvod brojeva od ${n} do ${m} koji su deljivi brojem ${a} je ${proizvodDeljivihSaA}`);
+
+// Zadatak 18
+/*
+<table>
+    <tr>
+        <td>Teskt</td>
+        <td>Teskt</td>
+    </tr>
+    <tr>
+        <td>Teskt</td>
+        <td>Teskt</td>
+    </tr>
+    ...
+</table>
+*/
+
+
+// Zadatak 18.
+
+// I nacin
+let redovi = 6;
+let tabela = `<table>`;
+for (i = 1; i <= redovi; i++) {
+    if (i % 2 == 0) {
+        tabela +=`<tr class="boja1">`;
+    }
+    else {
+        tabela +=`<tr class="boja2">`;
+    }
+    tabela += 
+        `
+                <td>Tekst</td>
+                <td>Tekst</td>
+            <tr>
+    `;
+}
+tabela += `</table>`;
+document.body.innerHTML += tabela;
+
+//////////////////
+
+let element = document.getElementById("naslov");
+element.innerHTML += "*****23";
+// element.innerHTML = "****" + element.innerHTML; // Ako zelimo da dodamo zvezdice pre 
+
+///////////////////
+
+// II nacin
+
+let htmlTabela = document.getElementById("mojaTabela");
+for (i = 1; i <= redovi; i++) {
+    if (i % 2 == 0) {
+    htmlTabela.innerHTML +=
+    `
+        <tr class="boja1">
+            <td>Tekst</td>
+            <td>Tekst</td>
+        </tr>
+    `;
+    }
+    else {
+        htmlTabela.innerHTML +=
+        `
+            <tr class="boja2">
+                <td>Tekst</td>
+                <td>Tekst</td>
+            </tr>
+        `;
+    }
+}
+
+
+// Zadatak 19.
+
+let brLI = 10;
+let lista = `<ul>`;
+for (i = 1; i <= brLI; i++) {
+    lista += `<li> Element ${i}`;
+    if(i % 3 == 2) {
+        i++;
+        lista += 
+        `
+        <ul>
+            <li class="ljubicasti"> Element ${i} </li>
+        </ul>
+        `;
+    }
+    lista += `</li>`;
+    
+}
+lista += `</ul>`;
+document.body.innerHTML += lista;
+
+// Drugi nacin
+
+let lista1 = `<ul>`;
+for (i = 1; i <= brLI; i++) {
+    if (i % 3 == 0) {
+        lista1 +=
+        `
+        <ul>
+            <li class="ljubicasti"> Element ${i}</li>
+        </ul>
+        `;
+    }
+    else {
+        lista1 += `<li>Element ${i}</li>`;
+    }
+}
+lista1 += `</ul>`;
+document.body.innerHTML += lista1;
+
+// Zadatak 20
+
+for (i = 1; i <= 64; i++) {
+    document.body.innerHTML += `<span>${i}</span>`;
+    if (i % 8 == 0) {
+        document.body.innerHTML += `<br>`;
+    }
+}
+

@@ -1,3 +1,35 @@
 img {
     width: 100px;
 }
+
+td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.boja1 {
+    background-color: indianred;
+}
+
+.boja2 {
+    background-color: lightseagreen;
+}
+
+.ljubicasti {
+    color: purple;
+}
+
+span {
+    display: inline-block;
+    border: 1px solid black;
+    width: 25px;
+    text-align: center;
+}
+
+.crno {
+    background-color: black;
+    color:white;
+}
