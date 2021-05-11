@@ -49,11 +49,15 @@ let obojiParagraf = (boja) => {
     document.body.innerHTML += `<p style="color:${boja}">Ovaj paragraf je obojen uz pomoc JS-a.</p>`;
 }
 
-obojiParagraf("green");
+
+let obojiParagraf2 = boja => `<p style="color:${boja}">Ovaj paragraf je obojen uz pomoc JS-a.</p>`;
+
+document.body.innerHTML += obojiParagraf2("blue");
+
 
 // Zadatak 7
 
-let sedmiDan = (n) => {
+let sedmiDan = n => {
     let ostatak = n % 7;
     switch (ostatak) {
         case 0:
@@ -81,6 +85,7 @@ let sedmiDan = (n) => {
             console.log("Pogresan unos");
     }
 }
+
 
 
 // Zadatak 8
@@ -128,6 +133,23 @@ let plata = (n, a) => {
     return suma;
 }
 
-console.log(plata(4, 15000));
+let plata2 = (n, a) => {
+    let d = 3000;
+    return n * (a + (n - 1) / 2 * d);
+    // return n * a + n * (n - 1) / 2 * d;
+}
+
+let plata3 = (n, a, d) => n * (a + (n - 1) / 2 * d);
+
 
 // Zadatak 16
+
+let most = (t, p, n) => {
+    if (t <= p || p + n <= t) {
+        return `Cekanje je 0s`;
+    }
+    else {
+        return `Cekanje je ${(p + n - t)}s`;
+    }
+}
+
