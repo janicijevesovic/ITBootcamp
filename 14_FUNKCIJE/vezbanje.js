@@ -82,6 +82,9 @@ function sedmiDan(n) {
         case 6:
             console.log("Subota");
             break;
+        default:
+            console.log("Pogresan unos");
+            break;
     }
 }
 
@@ -116,4 +119,50 @@ function mnozi(n, m) {
         proizvod *= i;
     }
     return proizvod;
+}
+
+// Zadatak 11
+
+function aritmetickaSredina(n, m) {
+    let suma = 0;
+    for (let i = n; i <= m; i++) {
+        suma += i;
+    }
+    return suma / (m - n + 1);
+}
+
+// Zadatak 12
+
+function aritmetickaSredinaPoslednjaCifra3(n, m) {
+    let suma = 0;
+    let brojBrojeva = 0
+    for (let i = n; i <= m; i++) {
+        if (i % 10 == 3) {
+            suma += i;
+            brojBrojeva += 1;
+        }
+    }
+    return suma / brojBrojeva;
+}
+
+
+// Zadatak 13
+
+function velicinaFonta(n) {
+    document.body.innerHTML += `<p style="font-size:${n}px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quae porro asperiores nesciunt accusantium officia.</p>`;
+}
+
+
+// Zadatak 14
+
+function ispisPet() {
+    for (i = 10; i <= 50; i += 10) {
+        document.body.innerHTML += `<p style="font-size:${i}px">Ovo je paragraf sa velicinom fonta ${i} px.</p>`;
+    }
+}
+
+function ispisPetEm() {
+    for (i = 1; i <= 5; i++) {
+        document.body.innerHTML += `<p style="font-size:${i}em">Ovo je paragraf sa velicinom fonta ${i} em.</p>`;
+    }
 }
