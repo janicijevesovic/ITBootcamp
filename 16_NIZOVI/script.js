@@ -123,17 +123,19 @@ for (let i = 0; i < brojevi.length; i++) {
 // Zadatak 8 Odrediti indeks minimalnog elementa celobrojnog niza
 
 let indeksMinimalnogElementa = nizBrojeva => {
+    let minVrednost = minimalnaVrednostNiza(nizBrojeva);
     for (let i = 0; i < nizBrojeva.length; i++) {
-        if (minimalnaVrednostNiza(nizBrojeva) == nizBrojeva[i]) {
+        if (minVrednost == nizBrojeva[i]) {
             return i;
         }
     }
 }
 
 let indeksMinimalnogElementa2 = nizBrojeva => {
+    let minVrednost = minimalnaVrednostNiza(nizBrojeva);
     let indeksi = "";
     for (let i = 0; i < nizBrojeva.length; i++) {
-        if (minimalnaVrednostNiza(nizBrojeva) == nizBrojeva[i]) {
+        if (minVrednost == nizBrojeva[i]) {
             indeksi += `${i} `;
         }
     }
@@ -141,7 +143,7 @@ let indeksMinimalnogElementa2 = nizBrojeva => {
 }
 
 
-console.log(indeksMinimalnogElementa2([11, 1, 13, 6, 1, 10]));
+console.log(indeksMinimalnogElementa2([11, 1, 1, 6, 1, 10]));
 
 // Zadatak 9 Odrediti broj elemenata celobrojnog niza koji su veci od srednje vrednosti
 
@@ -186,3 +188,15 @@ let brojParnihElemenata = nizBrojeva => {
 }
 
 console.log(brojParnihElemenata([0, 2, 4, 3, -1, -2, -4]));
+
+// Zadatak 12. Odrediti broj parnih elemenata sa neparnim indeksom
+let nizBrojeva = [10, 16, 15, 17, 12, -14];
+let brElem = 0;
+for (let i = 0; i < nizBrojeva.length; i++) {
+    // indeks - i
+    // element - nizbrojeva[i];
+    if (nizBrojeva[i] % 2 == 0 && i % 2 == 1) {
+        brElem += 1;
+    }
+}
+console.log(brElem);
