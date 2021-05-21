@@ -57,7 +57,7 @@ let dan = {
     },
     // 5. Metoda: Vraća true ukoliko je u većini dana temperatura bila iznad proseka. U suprotnom vraća false.
     vecinaIznadProseka: function() {
-        let brIznadProseka = this.natprosecna;
+        let brIznadProseka = this.natprosecna();
         return brIznadProseka > this.temperature.length / 2;
     },
     // 6. Metoda: Za dan se smatra da je leden ukoliko nijedna temperatura izmerena tog dana nije iznosila iznad 0 stepeni. Metod vraća true ukoliko je dan bio leden, u suprotnom metod vraća false.
