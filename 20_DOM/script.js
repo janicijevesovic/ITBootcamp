@@ -69,3 +69,39 @@ console.log(r9);
 
 let r10 = document.querySelectorAll("#div1"); // querySelectorAll UVEK vraca NodeList , cak i kada se ta lista sastoji od jednog elementa
 console.log(r10);
+
+// Menjanje elemenata iz HTML-a
+console.log(r1.id);
+console.log(r1.href);
+console.log(r1.innerHTML);
+// r1.innerHTML = "Sadrzaj div elementa je tekst dodat iz JS-a";
+r1.innerHTML += "Sadrzaj div elementa je tekst dodat iz JS-a";
+
+let prviLink = document.querySelector("a");
+prviLink.href = "https://www.wikipedia.com";
+
+// prviLink.setAttribute('target', '_blank');
+prviLink.target = '_blank';
+prviLink.setAttribute('href', 'https://www.wikipedia.org');
+prviLink.innerHTML = "Wikipedia";
+
+// prviLink.style.color = "red";
+// prviLink.style.backgroundColor = "yellow";
+// prviLink.style.textDecoration = "none";
+// prviLink.style.border = "1px solid black";
+
+prviLink.setAttribute('style', 'color: red; background-color: blue; text-decoration: none;');
+
+r1.style.color = "green";
+
+// Postaviti crveni border svim linkovima na stranici
+
+r7.forEach(link => {
+    link.style.border = "3px solid red";
+});
+
+// Drugi nacin
+let linkovi = document.getElementsByTagName("a");
+for (let i = 0; i < linkovi.length; i++) {
+    linkovi[i].style.border = "3px solid green";
+}
