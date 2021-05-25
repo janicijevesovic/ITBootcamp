@@ -105,3 +105,28 @@ let linkovi = document.getElementsByTagName("a");
 for (let i = 0; i < linkovi.length; i++) {
     linkovi[i].style.border = "3px solid green";
 }
+
+
+// Dohvatanje roditeljskog cvora
+linkovi = document.querySelectorAll("a");
+linkovi.forEach(link => {
+    console.log(link.parentNode);
+    link.parentNode.style.border = "2px solid red";
+});
+
+// Dohvatanje deteta nekog cvora
+let prviDiv = document.querySelector("div.container");
+prviDiv.childNodes.forEach(child => {
+    console.log(child);
+});
+
+let n = prviDiv.childNodes.length;
+for (let i = 0; i < n; i++) {
+    console.log(prviDiv.childNodes[i]);
+}
+
+let link1 = prviDiv.childNodes[1];
+console.log(link1.previousSibling);
+console.log(link1.nextSibling.nextSibling);
+
+link1.nextSibling.nextSibling.style.fontSize = "24px";
