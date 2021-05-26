@@ -6,6 +6,8 @@ console.log(v2);
 
 let v3 = document.getElementById("poslednjiRed");
 console.log(v3);
+// let v3 = document.querySelector("table");
+// console.log(v3.lastChild.childNodes[4]);
 
 let v4 = document.getElementsByTagName("a");
 console.log(v4);
