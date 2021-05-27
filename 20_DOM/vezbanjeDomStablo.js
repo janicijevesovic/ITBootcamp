@@ -42,3 +42,8 @@ paragrafi.forEach(paragraf => {
         paragraf.classList.add('error');
     }
 });
+
+// // 2. nacin
+// paragrafi.forEach(paragraf => {
+//     paragraf.classList.toggle('error');
+// });

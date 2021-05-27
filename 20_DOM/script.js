@@ -130,3 +130,16 @@ console.log(link1.previousSibling);
 console.log(link1.nextSibling.nextSibling);
 
 link1.nextSibling.nextSibling.style.fontSize = "24px";
+
+//////// 27.05.2021
+let noviParagraf = document.createElement('p');
+noviParagraf.textContent = "Tekst novog paragrafa";
+let noviDiv = document.getElementById('div2');
+noviDiv.appendChild(noviParagraf);
+// document.body.appendChild(noviParagraf);
+
+let noviLink = document.createElement('a');
+noviLink.textContent = "Klikni me";
+noviLink.href = "https://www.google.com";
+noviParagraf.appendChild(noviLink);
+noviParagraf.removeChild(noviLink);
