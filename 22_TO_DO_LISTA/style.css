@@ -1,0 +1,23 @@
+h1 {
+    color: blue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 10px;
+    padding: 5px;
+    background-color: wheat;
+    width: 25%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid brown;
+    font-weight: bold;
+    cursor: pointer;
+}
+.precrtano {
+    text-decoration: line-through;
+    background-color: lightgray;
+}

@@ -27,9 +27,58 @@
 
     <!-- 5. Zadatak -->
     <p>
-        <input type="text" id="ime">
+        <input type="text" name="" id="ime" placeholder="Unesite ime">
         <button id="dugmePozdrav">Dugme za pozdrav</button>
         <p id="paragrafPozdrav"></p>
+    </p>
+
+    <!-- 5. Zadatak - Drugi nacin -->
+    <p>
+        <form action="">
+            <input type="text" name="" id="prezime" placeholder="Unesite prezime">
+            <button id="posaljiPrezime">Posalji prezime</button>
+            <!-- <input type="button" value="Posalji prezime"> -->
+            <!-- <input type="submit" value="Posalji prezime"> -->
+        </form>
+        <p id="prikaziPrezime"></p>
+    </p>
+
+    <!-- 7. Zadatak -->
+    <p>
+        <form action="">
+            <p>
+                <label for="">Kvadriraj ovaj broj:</label>
+                <input type="number" name="" id="brojKvadriraj">
+                <button id="dugmeKvadriraj">Izracunaj</button>
+            </p>
+
+            <p>
+                <label for="">Prepolovi ovaj broj:</label>
+                <input type="number" name="" id="brojPrepolovi">
+                <button id="dugmePrepolovi">Izracunaj</button>
+            </p>
+
+            <p>
+                <label for="">Izracunati povrsinu kruga za zadati poluprecnik:</label>
+                <input type="number" name="" id="poluprecnik">
+                <button id="dugmePovrsina">Izracunaj</button>
+            </p>
+        </form>
+
+        <p id="prikaziRezultatKvadriraj"></p>
+        <p id="prikaziRezultatPrepolovi"></p>
+        <p id="prikaziRezultatPovrsina"></p>
+
+    </p>
+
+    <!-- Primer -->
+    <p>
+        <form action="" id="forma">
+            <input type="text" name="" id="jelo" placeholder="Omiljeno jelo"><br><br>
+            <input type="text" name="" id="pice" placeholder="Omiljeno pice"><br><br>
+            <input type="submit" value="Posalji">
+        </form>
+        <p id="ispis"></p>
     </p>
 
     <script src="zadaci.js"></script>
