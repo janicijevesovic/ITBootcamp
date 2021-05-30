@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 10px;
+    color: blue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+ul {
+    list-style-type: none;
+    
+}
+
+li {
+    margin: 10px;
+    padding: 5px;
+    background-color: wheat;
+    width: 25%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid brown;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#inputObaveza {
+    margin: 10px;
+    padding: 5px;
+    width: 25%;
+    border: 2px solid brown;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#inputObaveza:focus {
+    background-color: lightsteelblue;
+    outline:none;
+}
+
+#radioDiv {
+    margin: 10px;
+    width: 25%;
+    background-color: wheat;
+    border: 2px solid brown;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+#radioDiv input {
+    margin: 10px;
+    cursor: pointer;
+}
