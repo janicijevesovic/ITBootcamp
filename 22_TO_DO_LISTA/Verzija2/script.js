@@ -28,24 +28,23 @@ let dodajKraj = document.getElementById('kraj');
 
 inputObaveza.addEventListener('keypress', e => {
     if (e.key === 'Enter') {
-        let noviElement = document.createElement('li');
-        if (inputObaveza.value == "") {
+        if (inputObaveza.value == "" || inputObaveza.value == null) {
             alert('Unesite obavezu')
         }
         else {
+            let noviElement = document.createElement('li');
+            noviElement.textContent = inputObaveza.value;
             if (dodajPocetak.checked) {
-                noviElement.textContent = inputObaveza.value;
                 listaObaveza.prepend(noviElement);
             }
             else if (dodajKraj.checked) {
-                noviElement.textContent = inputObaveza.value;
                 listaObaveza.append(noviElement);
             }
+            noviElement.addEventListener('click', () => {
+                listaObaveza.removeChild(noviElement);
+            });
             inputObaveza.value = "";
         }
-        noviElement.addEventListener('click', () => {
-            listaObaveza.removeChild(noviElement);
-        });
     }
 });
 
