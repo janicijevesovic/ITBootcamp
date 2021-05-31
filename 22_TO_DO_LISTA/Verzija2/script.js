@@ -43,8 +43,11 @@ inputObaveza.addEventListener('keypress', e => {
             }
             inputObaveza.value = "";
         }
+        noviElement.addEventListener('click', () => {
+            listaObaveza.removeChild(noviElement);
+        });
     }
-})
+});
 
 
 stavkeListe.forEach(stavka => {
