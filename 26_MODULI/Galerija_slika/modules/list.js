@@ -1,15 +1,20 @@
+import generateImage from "./general.js";
+
 let generateList = parent => {
-    let novaLista = document.createElement('ul');
-    parent.appendChild(novaLista);
+    let ul = document.createElement('ul');
+    ul.style.overflow = "hidden";
+    ul.style.listStyleType = "none";
+    parent.appendChild(ul);
+    return ul;
 }
 
-let generateListItem = (parent, src) => {
-    let noviElement = document.createElement('li');
-    let novaSlika = document.createElement('img');
-    novaSlika.src = src;
-    novaSlika.alt = "Pejzaz";
-    noviElement.appendChild(novaSlika);
-    parent.appendChild(noviElement);
+let generateItem = (parent, src) => {
+    let li = document.createElement('li');
+    li.style.float = "left";
+    let img = generateImage(src);
+    li.appendChild(img);
+    parent.appendChild(li);
+    return li;
 }
 
-export{generateList, generateListItem}
+export{generateList, generateItem}

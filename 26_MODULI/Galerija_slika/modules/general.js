@@ -11,4 +11,4 @@ let generateImage = src => {
     novaSlika.alt = "Pejzaz";
     return novaSlika;
 }
-export {generateImage};
+export default generateImage;
