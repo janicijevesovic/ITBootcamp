@@ -1,8 +1,8 @@
 import {Film} from "./film.js";
 
-let film1 = new Film("Kum", "F.Kopola", 1972, [7.5, 7, 9, 7.5, 10]);
+let film1 = new Film("Kum", "F.Kopola", 1972, [8, 7, 9, 7.5, 10]);
 let film2 = new Film("Sindlerova lista", "S.Spilberg", 2000, [8, 6, 8, 7.5, 6]);
-let film3 = new Film("Dobar, los, zao", "S.Leone", 1900, [8, 8, 7.5, 6.5, 8.5, 6.5]);
+let film3 = new Film("Dobar, los, zao", "S.Leone", 1966, [5, 8, 7.5, 6.5, 9, 9]);
 
 let arrFilm = [film1, film2, film3];
 
@@ -82,7 +82,21 @@ let najcescaOcena = (nizFilmova, nizOcena) => {
             }
         });
     });
-
+    nizOcena.forEach(ocena => {
+        let brojOcena = 0;
+        nizFilmova.forEach(film => {
+            film.ocene.forEach(ocenaFilma => {
+                if (ocenaFilma == ocena) {
+                    brojOcena += 1;
+                }
+            });
+        });
+        if (brojOcena > najveciBrojOcena) {
+            najveciBrojOcena = brojOcena;
+            najcescaOcena = ocena;
+        }
+    });
+    return najcescaOcena;
 }
 
 let iznadOcene = (ocena, nizFilmova) => {
@@ -95,6 +109,21 @@ let iznadOcene = (ocena, nizFilmova) => {
     return nizBoljih;
 }
 
+let iznadOceneNoviji = (ocena, nizFilmova) => {
+   let nizIznad = [];
+   nizFilmova.forEach(film => {
+       if (film.prosek() > ocena) {
+           nizIznad.push(film);
+       }
+   });
 
-
-
+   let najnovijiFilm = nizIznad[0];
+   let najvecaGodina = nizIznad[0].godinaIzdanja;
+   nizIznad.forEach(film => {
+       if (film.godinaIzdanja > najvecaGodina) {
+           najvecaGodina = film.godinaIzdanja;
+           najnovijiFilm = film;
+       }
+   });
+   return najnovijiFilm;
+}
