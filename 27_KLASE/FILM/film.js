@@ -1,8 +1,9 @@
-class Film {
-    constructor(naslov, reziser, godinaIzdanja) {
+export class Film {
+    constructor(naslov, reziser, godinaIzdanja, ocene) {
         this.naslov = naslov;
         this.reziser = reziser;
         this.godinaIzdanja = godinaIzdanja;
+        this.ocene = ocene;
     }
 
     // Seteri
@@ -19,7 +20,9 @@ class Film {
         else {
             this._godinaIzdanja = 1800;
         }
-        
+    }
+    set ocene(ocene) {
+        this._ocene = ocene;
     }
 
     // Geteri
@@ -32,20 +35,19 @@ class Film {
     get godinaIzdanja() {
         return this._godinaIzdanja;
     }
+    get ocene() {
+        return this._ocene;
+    }
 
     // Metode
     stampaj() {
         console.log(this.naslov, this.reziser, this.godinaIzdanja);
     }
+    prosek() {
+        let ukupneOcene = 0;
+        this.ocene.forEach(ocena => {
+            ukupneOcene += ocena;
+        });
+        return ukupneOcene / this.ocene.length;
+    }
 }
-
-let film1 = new Film("Kum", "F.Kopola", 1972);
-let film2 = new Film("Sindlerova lista", "S.Spilberg", 1993);
-let film3 = new Film("Dobar, los, zao", "S.Leone", 1966);
-
-film2.godinaIzdanja = 2002;
-film2.stampaj();
-film3.godinaIzdanja = 1600;
-film3.stampaj();
-
-
