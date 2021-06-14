@@ -184,23 +184,67 @@ async function clickGetItems() {
 
     let data2 = await getItemsReturnPromise("./JSON/weights.json");
     let totalWeight = 0;
-            data2.forEach(item => {
-                // Da li niz itemsNoStock sadrzi item.id
-                if (itemsNoStock.includes(item.id)) {
-                    // Potrebna je tezina artikla
-                    totalWeight += item.weight;
-                }
-            });
-            // console.log(totalWeight);
-            if (totalWeight > capacity) {
-                let pMessage = document.createElement('p');
-                pMessage.style.fontWeight = "bold";
-                pMessage.style.fontSize = "24px";
-                pMessage.textContent = "Not enough capacity in truck!";
-                divOrder.appendChild(pMessage);
+    data2.forEach(item => {
+        // Da li niz itemsNoStock sadrzi item.id
+        if (itemsNoStock.includes(item.id)) {
+            // Potrebna je tezina artikla
+            totalWeight += item.weight;
+        }
+    });
+    // console.log(totalWeight);
+    if (totalWeight > capacity) {
+        let pMessage = document.createElement('p');
+        pMessage.style.fontWeight = "bold";
+        pMessage.style.fontSize = "24px";
+        pMessage.textContent = "Not enough capacity in truck!";
+        divOrder.appendChild(pMessage);
+    }
+    else {
+        let data3 = await getItemsReturnPromise("./JSON/prices.json");
+        let totalPrice = 0;
+        let tabela = document.createElement('table');
+        data3.forEach(item => {
+            if (itemsNoStock.includes(item.id)) {
+                let noviRed = document.createElement('tr');
+
+                let prvaKolona = document.createElement('td');
+                prvaKolona.textContent = item.item;
+                noviRed.appendChild(prvaKolona);
+
+                let drugaKolona = document.createElement('td');
+                drugaKolona.textContent = item.price;
+                noviRed.appendChild(drugaKolona);
+
+                tabela.appendChild(noviRed);
+                totalPrice += item.price;
             }
-            else {
-                let data3 = await getItemsReturnPromise("./JSON/prices.json");
-                
-            }
+        });
+        let poslednjiRed = document.createElement('tr');
+
+        let prvaKolona = document.createElement('td');
+        prvaKolona.textContent = "Ukupno:";
+        poslednjiRed.appendChild(prvaKolona);
+
+        let drugaKolona = document.createElement('td');
+        drugaKolona.textContent = `${totalPrice}`;
+        poslednjiRed.appendChild(drugaKolona);
+
+        poslednjiRed.style.fontWeight = "bold";
+        tabela.appendChild(poslednjiRed);
+
+        return tabela; 
+    }
 }
+
+let click3 = event => {
+    event.preventDefault();
+    clickGetItems()
+    .then(tabela => {
+        divTabela.appendChild(tabela);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
+
+formOrder.addEventListener('submit', click3);
