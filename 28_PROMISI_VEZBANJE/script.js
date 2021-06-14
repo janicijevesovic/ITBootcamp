@@ -170,4 +170,37 @@ let click2 = event => {
         });
 }
 
-formOrder.addEventListener('submit', click2);
+// formOrder.addEventListener('submit', click2);
+
+async function clickGetItems() {
+    let data1 = await getItemsReturnPromise("./JSON/stock.json");
+    let capacity = inputOrder.value;
+    let itemsNoStock = [];
+    data1.forEach(item => {
+        if (item.stock == 0) {
+            itemsNoStock.push(item.id);
+        }
+    });
+
+    let data2 = await getItemsReturnPromise("./JSON/weights.json");
+    let totalWeight = 0;
+            data2.forEach(item => {
+                // Da li niz itemsNoStock sadrzi item.id
+                if (itemsNoStock.includes(item.id)) {
+                    // Potrebna je tezina artikla
+                    totalWeight += item.weight;
+                }
+            });
+            // console.log(totalWeight);
+            if (totalWeight > capacity) {
+                let pMessage = document.createElement('p');
+                pMessage.style.fontWeight = "bold";
+                pMessage.style.fontSize = "24px";
+                pMessage.textContent = "Not enough capacity in truck!";
+                divOrder.appendChild(pMessage);
+            }
+            else {
+                let data3 = await getItemsReturnPromise("./JSON/prices.json");
+                
+            }
+}
