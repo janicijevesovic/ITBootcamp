@@ -334,8 +334,29 @@ db.collection('tasks')
 
 // Zadatak 10
 // Iz kolekcije tasks, pročitati sve zadatke koji treba da se izvrse u tekucoj godini
+let datum = new Date();
+let tekucaGodina = datum.getFullYear();
+
+let pocGod = new Date(tekucaGodina, 0, 1);
+let krajGod = new Date(tekucaGodina + 1, 0, 1);
+
+db.collection('tasks')
+.where('due_date', '>', pocGod)
+.where('due_date', '<', krajGod)
+.get()
+.then(documents => {
+    documents.forEach(doc => {
+        console.log(doc.data());
+    });
+})
+.catch(err => {
+    console.log("Error", err);
+});
+
+// Zadatak 11
+// Iz kolekcije tasks, pročitati sve zadatke koji su zavrseni
 // db.collection('tasks')
-// .where('start_date', '==', 2021)
+// .where('start_date', '<', datum)
 // .get()
 // .then(documents => {
 //     documents.forEach(doc => {
@@ -346,23 +367,16 @@ db.collection('tasks')
 //     console.log("Error", err);
 // });
 
-let task1 = db.collection('tasks').doc('task-01');
-task1
-.get()
-.then(doc => {
-    if (doc.exists) {
-        let t = doc.data();
-        let datum = t.start_date.toDate();
-        let godina = datum.getFullYear();
-        console.log(godina);
-        if (godina == 2021) {
-            console.log(true);
-        }
-    }
-    else {
-        console.log(`No document with id: ${doc.id}`);
-    }
-})
-.catch(err => {
-    console.log(`Desila se greska: ${err}`);
-});
+// Zadatak 12
+// Iz kolekcije tasks, pročitati sve zadatke koji tek treba da pocnu
+// db.collection('tasks')
+// .where('start_date', '>', datum)
+// .get()
+// .then(documents => {
+//     documents.forEach(doc => {
+//         console.log(doc.data());
+//     });
+// })
+// .catch(err => {
+//     console.log("Error", err);
+// });
