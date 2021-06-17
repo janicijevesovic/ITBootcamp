@@ -340,23 +340,9 @@ let tekucaGodina = datum.getFullYear();
 let pocGod = new Date(tekucaGodina, 0, 1);
 let krajGod = new Date(tekucaGodina + 1, 0, 1);
 
-db.collection('tasks')
-.where('due_date', '>', pocGod)
-.where('due_date', '<', krajGod)
-.get()
-.then(documents => {
-    documents.forEach(doc => {
-        console.log(doc.data());
-    });
-})
-.catch(err => {
-    console.log("Error", err);
-});
-
-// Zadatak 11
-// Iz kolekcije tasks, pročitati sve zadatke koji su zavrseni
 // db.collection('tasks')
-// .where('start_date', '<', datum)
+// .where('due_date', '>', pocGod)
+// .where('due_date', '<', krajGod)
 // .get()
 // .then(documents => {
 //     documents.forEach(doc => {
@@ -366,6 +352,20 @@ db.collection('tasks')
 // .catch(err => {
 //     console.log("Error", err);
 // });
+
+// Zadatak 11
+// Iz kolekcije tasks, pročitati sve zadatke koji su zavrseni
+db.collection('tasks')
+.where('due_date', '<', datum)
+.get()
+.then(documents => {
+    documents.forEach(doc => {
+        console.log(doc.data());
+    });
+})
+.catch(err => {
+    console.log("Error", err);
+});
 
 // Zadatak 12
 // Iz kolekcije tasks, pročitati sve zadatke koji tek treba da pocnu
