@@ -35,7 +35,7 @@
     <!-- Prostor za poruke -->
     <div class="row">
         <section class="col-12">
-            <ul>
+            <ul id="msgUL">
                 <!-- Ovde ce se nalaziti poruke -->
             </ul>
         </section>
@@ -49,8 +49,8 @@
                     &nbsp;
                 </div>
 
-                <input type="text" name="" id="" placeholder="Your message..." class="col-3">
-                <button type="button" class="col-1">Send</button>
+                <input type="text" name="" id="inputSend" placeholder="Your message..." class="col-3">
+                <button type="button" class="col-1" id="btnSend">Send</button>
 
                 <div class="col-4">
                     &nbsp;
@@ -95,6 +95,6 @@
         let database = firebase.firestore();
     </script>
 
-    <script src="chat.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 </html>

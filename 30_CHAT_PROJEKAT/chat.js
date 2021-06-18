@@ -1,8 +1,9 @@
-class Chatroom {
+export class Chatroom {
     constructor(room, username) {
         this.room = room;
         this.username = username;
         this.chats = database.collection('chats');
+        this.unsub;
     }
 
     // Seteri
@@ -36,7 +37,10 @@ class Chatroom {
     }
 
     getChats(callback) {
-        this.chats.onSnapshot(snapshot => {
+        this.unsub = this.chats
+            .where('room', '==', this.room)
+            .orderBy('created_at', 'asc')
+            .onSnapshot(snapshot => {
             // console.log(snapshot.docChanges());
             // Krecemo se nizom promena i trazimo one promene koje su izazvale dodavanje dokumenta (added)
             snapshot.docChanges().forEach(change => {
@@ -48,31 +52,16 @@ class Chatroom {
             });
         });
     }
+
+    updateUsername(username) {
+        this.username = username;
+    }
+
+    updateRoom(room) {
+        this.room = room;
+        if (this.unsub) {
+            this.unsub();
+        }
+        
+    }
 }
-
-let chat1 = new Chatroom("js", "user1");
-
-
-// Poziv asinhrone metode addChat
-// console.log(chat1.addChat("Test poruka"));
-// chat1.addChat("Test poruka dodavanje :)))")
-//     .then(() => 
-//         console.log("Cet je dodat")
-//     )
-//     .catch(err => 
-//         console.log("Greska:", err)
-//     );
-
-// let chat2 = new Chatroom("general", "user2");
-// chat2.addChat("Zdravo svima!")
-//     .then(() => 
-//         console.log("Cet je dodat")
-//     )
-//     .catch(err => 
-//         console.log("Greska:", err)
-//     );
-
-// Poziv Callback Funkcije getChats
-chat1.getChats(data => {
-    console.log(data);
-});
