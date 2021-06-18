@@ -5,46 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat - Projekat</title>
+    <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div>
-            <h2>Chat App</h2>
-        </div>
-        <div>
-            <h3>Pick your chatroom:</h3>
-        </div>
-    </header>
 
-    <nav>
-        <ul>
-            <li><a href="#">#general</a></li>
-            <li><a href="#">#js</a></li>
-            <li><a href="#">#homeworks</a></li>
-            <li><a href="#">#tests</a></li>
-        </ul>
-    </nav>
+    <div class="row">
+        <header class="col-12">
+            <div>
+                <h2>Chat App</h2>
+            </div>
+            <div>
+                <h3>Pick your chatroom:</h3>
+            </div>
+        </header>
+    </div>
+
+    <div class="row">
+        <nav class="col-12">
+            <ul>
+                <li class="col-3"><a href="#">#general</a></li>
+                <li class="col-3"><a href="#">#js</a></li>
+                <li class="col-3"><a href="#">#homeworks</a></li>
+                <li class="col-3"><a href="#">#tests</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <!-- Prostor za poruke -->
-    <section>
-        <ul>
-            <!-- Ovde ce se nalaziti poruke -->
-        </ul>
-    </section>
+    <div class="row">
+        <section class="col-12">
+            <ul>
+                <!-- Ovde ce se nalaziti poruke -->
+            </ul>
+        </section>
+    </div>
 
-    <footer>
-        <div>
-            <input type="text" name="" id="" placeholder="Your message...">
-            <button type="button">Send</button>
-        </div>
+    <div class="row">
+        <footer class="col-12">
+            <div class="col-12">
 
-        <div>
-            <input type="text" name="" id="" placeholder="Update username">
-            <button type="button">Update</button>
-        </div>
-    </footer>
+                <div class="col-4">
+                    &nbsp;
+                </div>
 
+                <input type="text" name="" id="" placeholder="Your message..." class="col-3">
+                <button type="button" class="col-1">Send</button>
+
+                <div class="col-4">
+                    &nbsp;
+                </div>
+
+            </div>
+
+            <div class = "col-12">
+                <div class="col-4">
+                    &nbsp;
+                </div>
+
+                <input type="text" name="" id="" placeholder="Update username" class="col-3">
+                <button type="button" class="col-1">Update</button>
+
+                <div class="col-4">
+                    &nbsp;
+                </div>
+            </div>
+            
+        </footer>
+    </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
