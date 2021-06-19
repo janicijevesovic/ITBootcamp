@@ -11,7 +11,17 @@ export class Chatroom {
         this._room = room;
     }
     set username(username) {
-        this._username = username;
+        if (username.length >= 2 && username.length <= 10) {
+            if (!username.trim().length) {
+                alert("Username ne sme biti prazan string");
+            }
+            else {
+                this._username = username;
+            }
+        }
+        else {
+            alert("Username mora biti izmedju 2 i 10 karaktera!")
+        }
     }
 
     // Geteri
