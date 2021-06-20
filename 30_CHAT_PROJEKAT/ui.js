@@ -28,10 +28,13 @@ export class ChatUI {
     }
 
     formatDate(date) {
-        let d = date.getDate();
-        let m = date.getMonth() + 1;
+        let d = ('0' + date.getDate()).slice(-2);
+        let m = ('0' + (date.getMonth() + 1)).slice(-2);
         let g = date.getFullYear();
 
-        return `${d}.${m}.${g}`;
+        let s = ('0' + date.getHours()).slice(-2);
+        let min = ('0' + date.getMinutes()).slice(-2);
+
+        return `${d}.${m}.${g}. - ${s}:${min}`;
     }
 }
