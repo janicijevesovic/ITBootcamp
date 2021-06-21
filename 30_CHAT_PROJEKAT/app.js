@@ -1,12 +1,12 @@
 import { Chatroom } from "./chat.js";
 import { ChatUI } from "./ui.js";
 
-// let chat1 = new Chatroom("js", "user1");
+// let chat1 = new Chatroom("general", "user1");
 
 
 // Poziv asinhrone metode addChat
 // console.log(chat1.addChat("Test poruka"));
-// chat1.addChat("Test poruka dodavanje :)))")
+// chat1.addChat("Dodata nova poruka u general")
 //     .then(() => 
 //         console.log("Cet je dodat")
 //     )
@@ -42,7 +42,7 @@ chatroom2.getChats(data => {
     console.log(data);
 });
 
-chatroom2.updateRoom("general");
+chatroom2.room = "js";
 
 chatroom2.getChats(data => {
     console.log(data);
@@ -64,7 +64,12 @@ chatroom2.getChats(data => {
 let inputSend = document.getElementById("inputSend")
 let btnSend = document.getElementById("btnSend");
 btnSend.addEventListener('click', () => {
-    chatroom2.addChat(inputSend.value)
+    if (inputSend.value == "") {
+        alert("Ne moze se poslati prazna poruka");
+    }
+    else {
+        chatroom2.addChat(inputSend.value)
         .then(() => inputSend.value = "")
         .catch(error => console.log(error));
+    }   
 });
