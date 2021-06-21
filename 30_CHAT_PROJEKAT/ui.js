@@ -25,6 +25,7 @@ export class ChatUI {
             </li>
         `;
         this.unorderedList.innerHTML += htmlLI;
+        this.unorderedList.scrollTop = this.unorderedList.scrollHeight;
     }
 
     formatDate(date) {
@@ -36,5 +37,9 @@ export class ChatUI {
         let min = ('0' + date.getMinutes()).slice(-2);
 
         return `${d}.${m}.${g}. - ${s}:${min}`;
+    }
+
+    clear() {
+        this.unorderedList.innerHTML = "";
     }
 }

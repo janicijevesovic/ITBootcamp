@@ -1,68 +1,47 @@
 import { Chatroom } from "./chat.js";
 import { ChatUI } from "./ui.js";
 
-// let chat1 = new Chatroom("general", "user1");
-
-
-// Poziv asinhrone metode addChat
-// console.log(chat1.addChat("Test poruka"));
-// chat1.addChat("Dodata nova poruka u general")
-//     .then(() => 
-//         console.log("Cet je dodat")
-//     )
-//     .catch(err => 
-//         console.log("Greska:", err)
-//     );
-
-// let chat2 = new Chatroom("general", "user2");
-// chat2.addChat("Zdravo svima!")
-//     .then(() => 
-//         console.log("Cet je dodat")
-//     )
-//     .catch(err => 
-//         console.log("Greska:", err)
-//     );
-
-// Poziv Callback Funkcije getChats
-// chat1.getChats(data => {
-//     console.log(data);
-// });
-
-let chatroom2 = new Chatroom("tests", "Milica");
-// chatroom2.addChat("Pozdrav svima")
-//     .then(() => 
-//         console.log("Cet je dodat")
-//     )
-//     .catch(err => 
-//         console.log("Greska:", err)
-//     );
-
-
-chatroom2.getChats(data => {
-    console.log(data);
-});
-
-chatroom2.room = "js";
-
-chatroom2.getChats(data => {
-    console.log(data);
-});
-
-
-////////////////////////////////////////
-// Testiranje ChatUI klase
-
+// DOM
 let ulChatList = document.querySelector('#msgUL');
+let inputSend = document.getElementById("inputSend");
+let btnSend = document.getElementById("btnSend");
+let inputUsername = document.getElementById("inputUsername");
+let btnUsername = document.getElementById("btnUsername");
+let navRooms = document.querySelector('nav');
+
+// Citamo iz lokalne memorije username, ukoliko postoji, u suprotnom default username je anonymous
+let username = () => {
+    if (localStorage.username) {
+        return localStorage.username;
+    }
+    else {
+        return "anonymous";
+    }
+}
+
+// Citamo iz lokalne memorije room, ukoliko postoji, u suprotnom default room je general
+let room = () => {
+    if (localStorage.room) {
+        return localStorage.room;
+    }
+    else {
+        return "general";
+    }
+}
+
+// Kreiramo objekat klase Chatroom
+
+let chatroom2 = new Chatroom(room(), username());
+// Kreiranje objekta klase ChatUI
+
 let chatUI1 = new ChatUI(ulChatList);
 
-console.log(chatUI1.unorderedList);
-
+// Kada se ucitava stranica po prvi put, ispisuju se cetovi na njoj
 chatroom2.getChats(data => {
     chatUI1.templateLI(data);
 });
 
-let inputSend = document.getElementById("inputSend")
-let btnSend = document.getElementById("btnSend");
+// Kada se klikne dugme posalji poruku
 btnSend.addEventListener('click', () => {
     if (inputSend.value == "") {
         alert("Ne moze se poslati prazna poruka");
@@ -73,3 +52,26 @@ btnSend.addEventListener('click', () => {
         .catch(error => console.log(error));
     }   
 });
+
+// Kada se klikne na dugme promeni se username
+btnUsername.addEventListener('click', () => {
+    chatroom2.updateUsername(inputUsername.value);
+    inputUsername.value = "";
+});
+
+//// Dugmad za promenu soba
+navRooms.addEventListener('click', e => {
+    if (e.target.tagName == "A") {
+        //1. Izbrisati sve poruke sa ekrana
+        chatUI1.clear();
+        //2. Pozvati promenu sobe
+        // console.log(e.target.id);
+        chatroom2.updateRoom(e.target.id);
+        // 3. Prikazati cetove
+        chatroom2.getChats(data => {
+            chatUI1.templateLI(data);
+        });
+    }
+});
+
+console.log(localStorage.room);

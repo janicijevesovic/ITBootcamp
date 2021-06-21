@@ -65,13 +65,20 @@ export class Chatroom {
 
     updateUsername(username) {
         this.username = username;
+        // Postavljamo vrednost u lokalnoj memoriji
+        localStorage.setItem("username", username);
+        // Prva vrednost - ime koje dajemo promenljivoj u lokalnoj memoriji
+        // Druga vrednost - vrednost koju dodeljujemo
+        // Uzimanje vrednosti iz lokalne memorije
+        // localStorage.username
+
     }
 
     updateRoom(room) {
         this.room = room;
+        localStorage.setItem("room", room);
         if (this.unsub) {
             this.unsub();
-        }
-        
+        } 
     }
 }
