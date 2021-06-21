@@ -8,6 +8,9 @@ let btnSend = document.getElementById("btnSend");
 let inputUsername = document.getElementById("inputUsername");
 let btnUsername = document.getElementById("btnUsername");
 let navRooms = document.querySelector('nav');
+let outputUsername = document.querySelector('#outputUsername');
+let navLinks = document.querySelectorAll('a');
+
 
 // Citamo iz lokalne memorije username, ukoliko postoji, u suprotnom default username je anonymous
 let username = () => {
@@ -57,16 +60,29 @@ btnSend.addEventListener('click', () => {
 btnUsername.addEventListener('click', () => {
     chatroom2.updateUsername(inputUsername.value);
     inputUsername.value = "";
+    outputUsername.innerHTML = `Username: ${chatroom2.username}`;
+    setTimeout(() => {
+        outputUsername.innerHTML = "";
+    }, 3000);
+    chatUI1.clear();
+    chatroom2.getChats(data => {
+        chatUI1.templateLI(data);
+    });
 });
 
 //// Dugmad za promenu soba
 navRooms.addEventListener('click', e => {
     if (e.target.tagName == "A") {
+        // navLinks.forEach(link => {
+        //     link.classList.remove("selected");
+        // });
+        let selectedLink = e.target;
         //1. Izbrisati sve poruke sa ekrana
         chatUI1.clear();
         //2. Pozvati promenu sobe
         // console.log(e.target.id);
         chatroom2.updateRoom(e.target.id);
+        // selectedLink.classList.add("selected");
         // 3. Prikazati cetove
         chatroom2.getChats(data => {
             chatUI1.templateLI(data);

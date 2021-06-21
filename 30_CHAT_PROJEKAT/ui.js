@@ -24,19 +24,41 @@ export class ChatUI {
             <div>${this.formatDate(date)}</div>
             </li>
         `;
+        if (localStorage.username == data.username) {
+            htmlLI = 
+        `
+            <li class="userMsg">
+            <span class="username">${data.username} : </span>
+            <span class="message">${data.message} </span>
+            <div>${this.formatDate(date)}</div>
+            </li>
+        `;
+        }
         this.unorderedList.innerHTML += htmlLI;
         this.unorderedList.scrollTop = this.unorderedList.scrollHeight;
     }
 
     formatDate(date) {
-        let d = ('0' + date.getDate()).slice(-2);
-        let m = ('0' + (date.getMonth() + 1)).slice(-2);
+        let trenutniDatum = new Date();
+        let trenutniDan = trenutniDatum.getDate();
+        let trenutniMesec = trenutniDatum.getMonth();
+
+        let d = date.getDate();
+        let m = date.getMonth();
         let g = date.getFullYear();
-
-        let s = ('0' + date.getHours()).slice(-2);
-        let min = ('0' + date.getMinutes()).slice(-2);
-
-        return `${d}.${m}.${g}. - ${s}:${min}`;
+        
+        if (trenutniDan == d && trenutniMesec == m) {
+            let s = ('0' + date.getHours()).slice(-2);
+            let min = ('0' + date.getMinutes()).slice(-2);
+            return `${s}:${min}`;
+        }
+        else {
+            let d = ('0' + date.getDate()).slice(-2);
+            let m = ('0' + (date.getMonth() + 1)).slice(-2);
+            let s = ('0' + date.getHours()).slice(-2);
+            let min = ('0' + date.getMinutes()).slice(-2);
+            return `${d}.${m}.${g}. - ${s}:${min}`;
+        }
     }
 
     clear() {

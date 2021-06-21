@@ -34,7 +34,7 @@ nav ul li {
     text-align: center;
 }
 
-nav ul li:hover {
+nav ul li a:hover {
     background-color: #39603D;
 }
 
@@ -44,6 +44,10 @@ nav ul li a {
     text-decoration: none;
     display: block;
     padding: 10px;
+}
+
+.selected {
+    background-color: #39603D;
 }
 
 /* Prostor za poruke */
@@ -56,11 +60,13 @@ section ul li {
     background-color: #DADED4;
     color: #3C403D;
     border: 2px solid #39603D;
-    border-radius: 10px 10px 0px 10px;
+    border-radius: 10px 10px 10px 0px;
     margin: 10px;
     padding: 5px;
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 50%;
+    float: left;
 }
 
 section ul li div {
@@ -69,6 +75,12 @@ section ul li div {
 
 .username {
     font-weight: bold;
+}
+
+.userMsg {
+    float: right;
+    width: 50%;
+    border-radius: 10px 10px 0px 10px;
 }
 
 /* Footer stranice */
@@ -99,4 +111,12 @@ footer button {
 
 footer button:hover {
     background-color: #39603D;
+}
+
+#outputUsername {
+    float: right;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #3C403D;
+    color: white;
 }
