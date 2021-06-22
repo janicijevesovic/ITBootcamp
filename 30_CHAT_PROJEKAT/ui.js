@@ -16,18 +16,21 @@ export class ChatUI {
     // Metode
     templateLI(data) {
         let date = data.created_at.toDate();
-        let htmlLI = 
+        let htmlLI;
+        if (localStorage.username == data.username) {
+            htmlLI = 
         `
-            <li>
+            <li class="userMsg">
             <span class="username">${data.username} : </span>
             <span class="message">${data.message} </span>
             <div>${this.formatDate(date)}</div>
             </li>
         `;
-        if (localStorage.username == data.username) {
+        }
+        else {
             htmlLI = 
-        `
-            <li class="userMsg">
+            `
+            <li>
             <span class="username">${data.username} : </span>
             <span class="message">${data.message} </span>
             <div>${this.formatDate(date)}</div>

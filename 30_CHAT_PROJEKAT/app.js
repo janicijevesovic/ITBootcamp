@@ -35,6 +35,7 @@ let room = () => {
 // Kreiramo objekat klase Chatroom
 
 let chatroom2 = new Chatroom(room(), username());
+
 // Kreiranje objekta klase ChatUI
 
 let chatUI1 = new ChatUI(ulChatList);
@@ -73,21 +74,19 @@ btnUsername.addEventListener('click', () => {
 //// Dugmad za promenu soba
 navRooms.addEventListener('click', e => {
     if (e.target.tagName == "A") {
-        // navLinks.forEach(link => {
-        //     link.classList.remove("selected");
-        // });
+        navLinks.forEach(link => {
+            link.classList.remove("selected");
+        });
         let selectedLink = e.target;
         //1. Izbrisati sve poruke sa ekrana
         chatUI1.clear();
         //2. Pozvati promenu sobe
         // console.log(e.target.id);
         chatroom2.updateRoom(e.target.id);
-        // selectedLink.classList.add("selected");
+        selectedLink.classList.add("selected");
         // 3. Prikazati cetove
         chatroom2.getChats(data => {
             chatUI1.templateLI(data);
         });
     }
 });
-
-console.log(localStorage.room);
